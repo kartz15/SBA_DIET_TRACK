@@ -28,6 +28,7 @@ body, h1, h2, label, input, select, button {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Form styling */
 form {
     background-color: white;
     padding: 20px;
@@ -83,12 +84,13 @@ button:hover {
 .table-section h2 {
     background-color: #007BFF;
     color: white;
-    padding: 15px;
+    padding: 20px;
     border-radius: 8px;
     font-size: 22px;
     margin-bottom: 20px;
     text-align: center; /* Center-align the heading text */
 }
+
 
 /* Table styling */
 table {
@@ -133,7 +135,6 @@ tr:hover {
 }
 
 /* Modal content box */
-/* Modal content box */
 .modal-content {
     background-color: white;
     margin: 5% auto; /* Adjusted to be a bit closer to the top */
@@ -144,8 +145,6 @@ tr:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     position: relative; /* For better positioning of close button */
 }
-
-
 
 /* Close button */
 .close {
@@ -221,7 +220,7 @@ tr:hover {
     }
 }
 
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
     .container {
         flex-direction: column;
     }
@@ -232,6 +231,20 @@ tr:hover {
 
     .form-section {
         margin-bottom: 20px;
+    }
+} */
+ /* Responsive adjustments for padding and margin */
+@media (max-width: 767px) {
+    .container {
+        padding: 15px; /* Adjust container padding on smaller screens */
+    }
+
+    .form-section, .table-section {
+        margin-bottom: 15px; /* Reduce space between sections */
+    }
+
+    .form-section {
+        margin-right: 0; /* Remove right margin in smaller screens */
     }
 }
 
@@ -296,3 +309,56 @@ button.remove-btn:hover {
     display: none; /* Hide by default */
 }
 
+/* Logged meals section adjustments */
+.logged-meals-section {
+    padding: 15px; /* Adjust as needed for spacing */
+    margin-bottom: 20px; /* Space below the section */
+}
+
+.logged-meals-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center; /* Center-align buttons horizontally */
+}
+
+.logged-meals-actions button {
+    flex: 1 1 auto;
+    min-width: 100px; /* Minimum width to ensure buttons are not too small */
+}
+
+@media (max-width: 767px) {
+    .logged-meals-actions {
+        flex-direction: column; /* Stack buttons vertically on smaller screens */
+        align-items: center; /* Center buttons horizontally */
+    }
+
+    .logged-meals-actions button {
+        width: 100%; /* Make buttons full-width for better touch interaction */
+        max-width: none; /* Remove max-width constraint on small screens */
+    }
+}
+
+
+/* Table section styling */
+.table-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 5px; /* Adds space above the table section */
+    overflow: hidden; /* Ensure no overflow outside the section */
+}
+
+/* Make the table scrollable on smaller screens */
+.table-container {
+    overflow-x: auto; /* Allow horizontal scroll if needed */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+/* Responsive adjustments for the table section */
+@media (max-width: 767px) {
+    .table-section {
+        padding: 15px; /* Adjust padding if needed */
+    }
+}
