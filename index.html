@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my Diet Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-section">
+            <h1 class="page-title">my Diet Tracker</h1>
+            <form id="meal-form">
+                <label for="date">Date:<span class="mandatory">*</span></label>
+                <input type="date" id="date" required>
+
+                <label for="meal-type">Meal Type:<span class="mandatory">*</span></label>
+                <select id="meal-type" required>
+                    <option value="">Select Meal Type</option>
+                    <option value="breakfast">Breakfast</option>
+                    <option value="lunch">Lunch</option>
+                    <option value="dinner">Dinner</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <div id="other-meal-container" style="display: none;">
+                    <label for="meal-name-other">Other Meal Type:</label>
+                    <input type="text" id="meal-name-other">
+                </div>
+
+                <label for="meal-name">Meal Name:<span class="mandatory">*</span></label>
+                <input type="text" id="meal-name" required>
+
+                <label for="calories">Calories:<span class="mandatory">*</span></label>
+                <input type="number" id="calories" required>
+
+                <label for="quantity">Quantity:<span class="mandatory">*</span></label>
+                <input type="number" id="quantity" required>
+
+                <button type="submit">Add Meal</button>
+            </form>
+        </div>
+
+        <div class="table-section">
+            <h2>Logged Meals</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Meal Type</th>
+                        <th>Meal Name</th>
+                        <th>Calories</th>
+                        <th>Quantity</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="meal-table-body">
+                    <!-- Meal rows will be added here -->
+                     
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal for Editing -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Meal</h2>
+            <form id="edit-form">
+                <label for="edit-date">Date:</label>
+                <input type="date" id="edit-date" required>
+
+                <label for="edit-meal-type">Meal Type:</label>
+                <select id="edit-meal-type" required>
+                    <option value="">Select Meal Type</option>
+                    <option value="breakfast">Breakfast</option>
+                    <option value="lunch">Lunch</option>
+                    <option value="dinner">Dinner</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <div id="edit-other-meal-container" style="display: none;">
+                    <label for="edit-meal-name-other">Other Meal Type:</label>
+                    <input type="text" id="edit-meal-name-other">
+                </div>
+                
+                <label for="edit-meal-name">Meal Name:<span class="mandatory">*</span></label>
+                <input type="text" id="edit-meal-name" required>
+
+                <label for="edit-calories">Calories:</label>
+                <input type="number" id="edit-calories" required>
+
+                <label for="edit-quantity">Quantity:</label>
+                <input type="number" id="edit-quantity" required>
+
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
