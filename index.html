@@ -8,6 +8,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <div class="profile-section">
+        <img src="default-profile.png" alt="Profile Picture" id="profile-pic">
+        <h2>Welcome, <span id="username">User</span></h2>
+        <button id="settings-button">
+            <i class="fas fa-cog"></i>
+        </button>
+    </div>
+
+    <div id="settings-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Settings</h2>
+        <form id="settings-form">
+            <label for="new-username">Username:</label>
+            <input type="text" id="new-username" required>
+
+            <label for="new-profile-pic">Profile Picture:</label>
+            <input type="file" id="new-profile-pic" accept="image/*">
+
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+</div>
     <div class="container">
         <div class="form-section">
             <h1 class="page-title">my Diet Tracker</h1>

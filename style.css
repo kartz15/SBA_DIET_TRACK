@@ -1,10 +1,12 @@
 /* Basic reset and layout */
+
 body, h1, h2, label, input, select, button {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
+
 
 .container {
     display: flex;
@@ -96,6 +98,7 @@ button:hover {
 table {
     width: 100%;
     border-collapse: collapse;
+    padding: 8px; /* Reduced padding from 12px to 8px */
 }
 
 table, th, td {
@@ -103,8 +106,12 @@ table, th, td {
 }
 
 th, td {
-    padding: 12px;
+    padding: 8px;
     text-align: left;
+    vertical-align: top; /* Align text to the top of cells */
+}
+tr {
+    margin: 0; /* Ensure no margin is applied to table rows */
 }
 
 th {
@@ -362,3 +369,113 @@ button.remove-btn:hover {
         padding: 15px; /* Adjust padding if needed */
     }
 }
+
+
+/* Profile Section Styling */
+.profile-section {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #007BFF;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    color:white;
+}
+
+#profile-pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+#username {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#settings-button {
+    margin-left: auto;
+    /* background-color: #007BFF; */
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    width:2%;
+    align-items: center;
+}
+
+#settings-button:hover {
+    background-color: #0056b3;
+}
+
+/* Settings Modal Styling */
+#settings-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 2; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+    overflow: auto;
+}
+
+/* Modal Content Styling */
+.modal-content {
+    position: relative; /* Allows absolute positioning of child elements */
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+}
+
+/* Close Button Styling */
+.modal-content .close {
+    position: absolute; /* Positioned relative to the modal content */
+    top: 10px; /* Distance from the top */
+    right: 10px; /* Distance from the right */
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal-content .close:hover {
+    color: #007BFF; /* Hover color */
+}
+
+/* Form and Button Styling */
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content input[type="file"] {
+    padding: 0;
+}
+
+.modal-content button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+    background-color: #0056b3;
+}
+
+
+
+

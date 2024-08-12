@@ -6,6 +6,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeModalButton = document.querySelector('#edit-modal .close');
     let currentEditId = null;
 
+    // Profile and Settings elements
+    const profilePic = document.getElementById('profile-pic');
+    const usernameSpan = document.getElementById('username');
+    const settingsButton = document.getElementById('settings-button');
+    const settingsModal = document.getElementById('settings-modal');
+    const settingsCloseButton = settingsModal.querySelector('.close');
+    const settingsForm = document.getElementById('settings-form');
+    const newUsernameInput = document.getElementById('new-username');
+    const newProfilePicInput = document.getElementById('new-profile-pic');
+
+
     // Show or hide "Other Meal Type" based on selected meal type
     function toggleOtherMealVisibility() {
         const mealType = document.getElementById('meal-type').value;
@@ -108,7 +119,51 @@ document.addEventListener('DOMContentLoaded', function() {
                 row.remove();
             }
         }
+        
     });
+    
+        // Open settings modal
+        settingsButton.addEventListener('click', () => {
+            settingsModal.style.display = 'block';
+            newUsernameInput.value = usernameSpan.textContent;
+        });
+
+        
+            // Close settings modal
+    settingsCloseButton.addEventListener('click', () => {
+        settingsModal.style.display = 'none';
+    });
+
+        // Handle settings form submission
+        settingsForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent page reload
+    
+            // Update username
+            const newUsername = newUsernameInput.value;
+            usernameSpan.textContent = newUsername;
+    
+            // Update profile picture
+            const file = newProfilePicInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    profilePic.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+    
+            // Close modal after saving
+            settingsModal.style.display = 'none';
+        });
+        
+
+            // Close modal if clicked outside of the modal content
+    window.addEventListener('click', (event) => {
+        if (event.target === settingsModal) {
+            settingsModal.style.display = 'none';
+        }
+    });
+
 
     closeModalButton.addEventListener('click', function() {
         editModal.style.display = 'none';
@@ -122,6 +177,18 @@ document.addEventListener('DOMContentLoaded', function() {
         const mealName = document.getElementById('edit-meal-name').value;
         const calories = document.getElementById('edit-calories').value;
         const quantity = document.getElementById('edit-quantity').value;
+
+        // Get the date value from the form
+        const selectedDate = new Date(date);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // Set today's date to start of day
+
+        // Check if the selected date is in the future
+        if (selectedDate > today) {
+            alert('The date cannot be in the future.');
+            return;
+        }
+
 
         if (!date || !mealType || !mealName || !calories || !quantity) {
             alert('Please fill all required fields.');
@@ -141,4 +208,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('meal-type').addEventListener('change', toggleOtherMealVisibility);
     document.getElementById('edit-meal-type').addEventListener('change', toggleEditOtherMealVisibility);
+
+
+
+    
 });
